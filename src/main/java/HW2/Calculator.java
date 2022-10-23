@@ -8,7 +8,7 @@ public class Calculator {
     static Scanner myObj;
     static String operationSymbol;
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         myObj = new Scanner(System.in);
 
         System.out.println("Enter first number: ");
@@ -32,15 +32,15 @@ public class Calculator {
                 System.out.println("Result of addition: " + addition());
                 break;
             case "%":
-                System.out.println("Result residual of divide : " + residualOfDivide());
+                System.out.println("Result residual of divide : " + percentage());
                 break;
             default:
                 System.out.println("Error");
         }
     }
 
-    private static int residualOfDivide() {
-        return firstNumber % secondNumber;
+    private static int percentage() {
+        return firstNumber / secondNumber * 100;
     }
 
     private static int addition() {
@@ -55,7 +55,11 @@ public class Calculator {
         return firstNumber * secondNumber;
     }
 
-    private static double divide() {
+    private static double divide() throws Exception {
+        if (secondNumber == 0) {
+            throw new Exception("Can't divide by zero");
+        }
         return (double) firstNumber / (double) secondNumber;
     }
 }
+
