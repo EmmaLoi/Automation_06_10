@@ -1,4 +1,4 @@
-package HW4;
+package HW5;
 
 public class Dog {
     private String name;
