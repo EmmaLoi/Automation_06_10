@@ -39,7 +39,10 @@ public class Calculator {
         }
     }
 
-    private static int percentage() {
+    private static int percentage() throws Exception {
+        if (secondNumber == 0) {
+            throw new Exception("Can't divide by zero");
+        }
         return firstNumber / secondNumber * 100;
     }
 
